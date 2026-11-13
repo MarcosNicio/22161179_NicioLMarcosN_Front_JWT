@@ -10,8 +10,7 @@ const { authenticate, authorize } = require("../middleware/auth.middleware");
 
 const router = express.Router();
 
-router.use(authenticate, authorize("admin", "manager"));
-
+router.use(authenticate, authorize("admin", "manager", "cashier"));
 /**
  * @swagger
  * components:
@@ -278,8 +277,7 @@ router.get("/:id", getEmployeeById);
  *             schema:
  *               $ref: '#/components/schemas/ErrorEmployeeV2'
  */
-router.post("/", createEmployee);
-
+router.post("/", authorize("admin", "manager"), createEmployee);
 /**
  * @swagger
  * /api/v2/employees/{id}:
@@ -335,8 +333,7 @@ router.post("/", createEmployee);
  *             schema:
  *               $ref: '#/components/schemas/ErrorEmployeeV2'
  */
-router.put("/:id", updateEmployee);
-
+   router.put("/:id", authorize("admin"), updateEmployee);
 /**
  * @swagger
  * /api/v2/employees/{id}:
@@ -380,6 +377,5 @@ router.put("/:id", updateEmployee);
  *             schema:
  *               $ref: '#/components/schemas/ErrorEmployeeV2'
  */
-router.delete("/:id", deleteEmployee);
-
+   router.delete("/:id", authorize("admin"), deleteEmployee);
 module.exports = router;

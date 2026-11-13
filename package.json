@@ -1,0 +1,13 @@
+{
+  "name": "backend-for-students",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["backend_base", "frontend"],
+  "scripts": {
+    "start": "concurrently -k -n api,web -c cyan,yellow \"npm run dev -w backend_base\" \"npm run dev -w frontend\"",
+    "dev": "npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

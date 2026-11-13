@@ -1,0 +1,30 @@
+.head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.head__count { color: var(--muted); }
+.head__search { margin-left: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 0.4rem 0.65rem; width: 12rem; }
+.head__search:focus { outline: none; border-color: var(--text); }
+
+.table-wrap { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.table th { text-align: left; font-weight: 600; font-size: 13px; color: var(--muted); padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--line); }
+.table td { padding: 0.65rem 1rem 0.65rem 0; border-bottom: 1px solid var(--line); }
+.table__actions { text-align: right; white-space: nowrap; }
+.table__actions .btn { margin-left: 0.9rem; }
+
+.state--on { color: var(--text); }
+.state:not(.state--on) { color: var(--muted); }
+.empty { padding: 2rem 0; color: var(--muted); }
+
+/* panel lateral */
+.scrim { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35); z-index: 10; }
+.panel { position: fixed; inset: 0 0 0 auto; width: min(400px, 100%); background: var(--bg); border-left: 1px solid var(--line); padding: 1.5rem; overflow-y: auto; z-index: 20; }
+.panel__title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1.25rem; }
+.panel__actions { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+
+/* acciones visibles pero sin permiso */
+.btn--locked, .btn--locked:hover { color: var(--muted); cursor: not-allowed; text-decoration: line-through; }
+
+@media (max-width: 700px) {
+  .bar { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0.8rem 1rem; }
+  .page { padding: 1.25rem 1rem 3rem; }
+  .head__search { margin-left: 0; width: 100%; }
+}
